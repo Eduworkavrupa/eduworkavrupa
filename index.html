@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduwork Avrupa | Almanya'da Kariyer ve Yaşam Danışmanlığı</title>
+    <meta name="description" content="Almanya'da denklik, iş arama, vize ve yaşam rehberliği için birebir Türkçe danışmanlık. Net bir yol haritası için hemen randevu al.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #4d7fa8;
+            --primary-dark: #3a6a90;
+            --accent: #059669;
+            --dark: #2e3d4f;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --radius: 14px;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.12);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--primary-dark) !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 0.5rem 1.25rem 1rem;
+        }
+        .mobile-nav.open { display: block; }
+        .mobile-nav a {
+            display: block;
+            padding: 0.85rem 0;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .mobile-nav a:last-child { border-bottom: none; color: var(--primary); font-weight: 700; }
+
+        /* ─── HERO ─── */
+        #hero {
+            background: linear-gradient(150deg, #1e2d3d 0%, #2e3d4f 60%, #243447 100%);
+            color: white;
+            padding: 6rem 1.25rem 5rem;
+            text-align: center;
+        }
+
+        #hero .container { max-width: 680px; margin: 0 auto; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.1);
+            color: #a8c8e0;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.75rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            letter-spacing: 0.01em;
+        }
+
+        #hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        #hero p {
+            font-size: 1.1rem;
+            color: #8fafc4;
+            margin-bottom: 2.5rem;
+            line-height: 1.75;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 0.875rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .trust-item strong { font-size: 0.95rem; color: white; font-weight: 700; }
+        .trust-item span { font-size: 0.78rem; color: #8fafc4; }
+
+        .trust-divider {
+            width: 1px;
+            background: rgba(255,255,255,0.15);
+            align-self: stretch;
+        }
+
+        /* ─── BUTTONS ─── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(77,127,168,0.35);
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(77,127,168,0.4); }
+
+        .btn-white { background: white; color: var(--dark); }
+        .btn-white:hover { background: #f1f5f9; }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        .btn-full { width: 100%; }
+
+        /* ─── SECTIONS ─── */
+        section { padding: 5rem 1.25rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-sub {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            max-width: 540px;
+            margin-bottom: 3rem;
+        }
+
+        /* ─── STEPS ─── */
+        #nasil-calisir { background: var(--bg-light); }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .step-num {
+            width: 42px;
+            height: 42px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
+        .step p { color: var(--text-light); font-size: 0.92rem; line-height: 1.65; }
+
+        /* ─── SERVICES ─── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s;
+        }
+
+        .card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+        .card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(145deg, #edf4f9 0%, #f0f6fb 100%);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 1.1rem;
+        }
+
+        .tag-blue { background: #daeaf5; color: #2e5f80; }
+        .tag-green { background: #dcfce7; color: #16a34a; }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .price {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin: 0.75rem 0;
+        }
+        .price span { font-size: 0.95rem; color: var(--text-light); font-weight: 400; }
+
+        .card-desc {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 1.75rem;
+        }
+
+        .features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .card-btns { display: flex; flex-direction: column; gap: 0.6rem; margin-top: auto; }
+
+        .pay-note {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        /* ─── ABOUT ─── */
+        #hakkimizda { background: var(--bg-light); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .stat {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-n { font-size: 2.25rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 0.4rem; }
+        .stat-l { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+
+        /* ─── JOB LISTINGS ─── */
+        #is-ilanlari { background: var(--bg); }
+
+        .jobs-notice {
+            background: var(--bg-light);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .jobs-notice strong { color: var(--text); }
+
+        .filter-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+
+        .filter-tab {
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid var(--border);
+            background: white;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .filter-tab.active, .filter-tab:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .job-card {
+            background: white;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.25s;
+        }
+
+        .job-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); }
+
+        .job-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+        .job-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+        .job-code { font-size: 0.75rem; color: var(--text-light); font-weight: 500; }
+
+        .job-sector {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+        }
+
+        .sector-saglik { background: #daeaf5; color: #2e5f80; }
+        .sector-teknik { background: #fef9c3; color: #854d0e; }
+        .sector-diger { background: #f3f4f6; color: #374151; }
+
+        .job-status { font-size: 0.75rem; font-weight: 700; color: var(--accent); background: #dcfce7; padding: 0.2rem 0.65rem; border-radius: 100px; white-space: nowrap; }
+
+        .job-card h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin: 0; }
+
+        .job-details { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; color: var(--text-light); }
+
+        .job-requirements { list-style: none; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.25rem; }
+
+        .job-requirements li { display: flex; align-items: flex-start; gap: 0.5rem; color: var(--text); }
+
+        .job-requirements li::before { content: "·"; color: var(--primary); font-weight: 800; flex-shrink: 0; }
+
+        .job-card .btn { margin-top: auto; }
+
+        /* ─── FAQ ─── */
+        .faq-wrap { max-width: 720px; margin: 0 auto; }
+        #sss { background: var(--bg-light); }
+        .faq-item { border-bottom: 1px solid var(--border); }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.97rem;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            transition: color 0.2s;
+        }
+        .faq-q:hover { color: var(--primary); }
+
+        .faq-icon { font-size: 1.4rem; color: var(--primary); flex-shrink: 0; font-weight: 300; line-height: 1; transition: transform 0.3s; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        .faq-a { display: none; padding: 0 0 1.25rem; color: var(--text-light); font-size: 0.93rem; line-height: 1.75; }
+        .faq-item.open .faq-a { display: block; }
+
+        /* ─── CONTACT ─── */
+        #iletisim {
+            background: linear-gradient(150deg, #1e2d3d 0%, #2e3d4f 100%);
+            color: white;
+        }
+
+        #iletisim h2 { color: white; }
+        #iletisim .section-sub { color: #8fafc4; margin: 0 auto 3rem; }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+        }
+
+        .contact-info-item .icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .contact-info-item h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #a8c8e0; margin-bottom: 0.25rem; }
+        .contact-info-item p { color: white; font-weight: 600; font-size: 0.92rem; }
+
+        .contact-form-wrap {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .contact-form-wrap h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 1.5rem; }
+
+        .form-group { margin-bottom: 1rem; }
+
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--bg);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--primary); }
+
+        .form-group textarea { resize: vertical; min-height: 110px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .form-success { display: none; text-align: center; padding: 2rem; color: var(--accent); font-weight: 600; font-size: 1rem; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #18242f;
+            color: #475569;
+            padding: 2rem 1.25rem;
+            text-align: center;
+        }
+
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: #475569; text-decoration: none; font-size: 0.83rem; }
+        .footer-links a:hover { color: #94a3b8; }
+        footer p { font-size: 0.82rem; }
+
+        /* ─── FLOATING BUTTONS ─── */
+        .floating {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: flex-end;
+        }
+
+        .float-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .float-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+        .float-cal { background: var(--primary); color: white; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            #hero { padding: 4rem 1.25rem 3.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 3.5rem 1.25rem; }
+            .float-btn span.label { display: none; }
+            .float-btn { padding: 0.9rem; border-radius: 50%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .jobs-grid { grid-template-columns: 1fr; }
+            .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .trust-divider { display: none; }
+            .hero-trust { gap: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header>
+    <nav>
+        <a href="#" class="logo">Eduwork <span>Avrupa</span></a>
+        <ul class="nav-links">
+            <li><a href="#nasil-calisir">Nasıl Çalışır?</a></li>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#is-ilanlari">İş İlanları</a></li>
+            <li><a href="#hakkimizda">Hakkımızda</a></li>
+            <li><a href="#sss">SSS</a></li>
+            <li><a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="nav-cta">Randevu Al →</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menü aç/kapat">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#nasil-calisir" onclick="closeMenu()">Nasıl Çalışır?</a>
+        <a href="#hizmetler" onclick="closeMenu()">Hizmetler</a>
+        <a href="#is-ilanlari" onclick="closeMenu()">İş İlanları</a>
+        <a href="#hakkimizda" onclick="closeMenu()">Hakkımızda</a>
+        <a href="#sss" onclick="closeMenu()">SSS</a>
+        <a href="https://cal.eu/eduworkavrupa/30min" target="_blank">📅 Randevu Al →</a>
+    </div>
+</header>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+    <div class="container">
+        <div class="badge">Almanya'ya kendi başına gelmiş birinden danışmanlık</div>
+        <h1>Almanya ve Avrupa sürecini birlikte doğru şekilde planlayalım.</h1>
+        <p>Denklikten iş bulmaya, CV'den ilk yerleşim sürecine kadar tüm adımları birlikte planlayalım. Bu süreci kendi başıma tamamlamış biri olarak sana en net ve uygulanabilir yolu gösteriyorum.</p>
+        <div class="hero-btns">
+            <a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="btn btn-primary">Görüşme Planla →</a>
+            <a href="#hizmetler" class="btn btn-white">Hizmetlere Bak</a>
+        </div>
+        <div class="hero-trust">
+            <div class="trust-item">
+                <strong>1:1</strong>
+                <span>Kişiye Özel Strateji</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <strong>TR / DE / EN</strong>
+                <span>Gerçek deneyim</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <strong>Adım adım</strong>
+                <span>Net ve uygulanabilir plan</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+                <strong>Zaman kaybı yok</strong>
+                <span>Doğru adımlarla hızlı ilerleme</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ HOW IT WORKS ═══════════════════════ -->
+<section id="nasil-calisir">
+    <div class="container">
+        <div class="section-label">Süreç</div>
+        <h2>3 adımda başlıyoruz</h2>
+        <p class="section-sub">Karmaşık görünse de yol aslında çok net. Birlikte adım adım ilerleriz.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Durumunu anlat</h3>
+                <p>Kısa bir ön görüşmede eğitim geçmişini, hedeflerini ve mevcut durumunu paylaş.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Yol haritanı al</h3>
+                <p>Sana özel, uygulanabilir ve net bir plan çıkarıyoruz. Ne yapman, ne zaman yapman gerektiğini belirliyoruz.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Birlikte uygula</h3>
+                <p>Belge kontrolünden iş başvurusuna, denklik sürecinden yerleşime kadar her aşamada yanındayız.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+<section id="hizmetler">
+    <div class="container">
+        <div class="section-label">Hizmetler</div>
+        <h2>Hangi desteğe ihtiyacın var?</h2>
+        <p class="section-sub">Görüntülü görüşmelerle birebir yönlendirme. Paketi seç, randevunu al — ödeme otomatik alınır.</p>
+
+        <div class="services-grid">
+
+            <div class="card">
+                <span class="tag tag-blue">Hızlı Değerlendirme</span>
+                <h3>15 Dakika Görüşme</h3>
+                <div class="price">19 € <span>/ tek seferlik</span></div>
+                <p class="card-desc">Kafandaki soruları hızlıca netleştirmek, doğru paket için ön değerlendirme yapmak ya da acil bir konuya odaklanmak için ideal.</p>
+                <ul class="features">
+                    <li>Görüntülü görüşme (Google Meet / Zoom)</li>
+                    <li>1 ana konu odağı</li>
+                    <li>Sonraki adım tavsiyesi</li>
+                </ul>
+                <div class="card-btns">
+                    <a href="https://cal.eu/eduworkavrupa/15min" target="_blank" class="btn btn-primary btn-full">📅 Randevu Al · 19 €</a>
+                </div>
+            </div>
+
+            <div class="card featured">
+                <span class="tag tag-green">⭐ En Çok Tercih Edilen</span>
+                <h3>30 Dakika Görüşme</h3>
+                <div class="price">29 € <span>/ tek seferlik</span></div>
+                <p class="card-desc">Denklik, iş arama, CV hazırlığı veya Almanya'ya taşınma sürecindeki belirli bir konuyu derinlemesine ele alıyoruz.</p>
+                <ul class="features">
+                    <li>Görüntülü görüşme (Google Meet / Zoom)</li>
+                    <li>Detaylı konu analizi</li>
+                    <li>Belge / CV incelemesi</li>
+                    <li>Yazılı özet & eylem planı</li>
+                    <li>1 hafta e-posta takibi</li>
+                </ul>
+                <div class="card-btns">
+                    <a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="btn btn-primary btn-full">📅 Randevu Al · 29 €</a>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="pay-note">
+            💳 <strong>Güvenli ödeme:</strong> Randevu sırasında Stripe ile ödeme alınır. 24 saat öncesine kadar iptal edebilirsiniz.
+        </p>
+    </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section id="hakkimizda">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="section-label">Hakkımızda</div>
+                <h2>Bu yolu biz de yürüdük.</h2>
+                <p>Almanya'ya taşınma kararını verdiğimizde önümüzde net bir yol haritası yoktu. Denklik süreçleri, iş başvuruları, yabancı dilde evrak takibi… Hepsini kendi başımıza öğrenerek tamamladık.</p>
+                <p>Şimdi o deneyimi sizin için kısayola çeviriyoruz. Aynı hataları yapmadan, doğru adımları doğru sırayla atmanız için yanınızdayız.</p>
+                <a href="https://cal.eu/eduworkavrupa/15min" target="_blank" class="btn btn-primary" style="margin-top:1.5rem; display:inline-flex;">Benimle Tanış →</a>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-n">3+</div>
+                    <div class="stat-l">Yıl Almanya deneyimi</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">100+</div>
+                    <div class="stat-l">Danışmanlık görüşmesi</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">%100</div>
+                    <div class="stat-l">Türkçe hizmet</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-n">⭐ 5.0</div>
+                    <div class="stat-l">Müşteri memnuniyeti</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ JOB LISTINGS ═══════════════════════ -->
+<section id="is-ilanlari">
+    <div class="container">
+        <div class="section-label">İş İlanları</div>
+        <h2>Açık Pozisyonlar</h2>
+        <p class="section-sub">Almanya'daki güncel ilanları takip ediyoruz. Başvuru sürecinde destek almak için görüşme planla.</p>
+
+        <div class="jobs-notice">
+            <span style="font-size:1.2rem; flex-shrink:0;">💡</span>
+            <div><strong>Nasıl çalışır?</strong> Aşağıdaki ilanlar referans amaçlıdır. Başvurmak istediğin bir ilan varsa görüşmemizde Indeed üzerinden birlikte inceleyebilir, başvuru dosyanı hazırlayabiliriz.</div>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterJobs('tumu', this)">Tümü</button>
+            <button class="filter-tab" onclick="filterJobs('saglik', this)">Sağlık</button>
+            <button class="filter-tab" onclick="filterJobs('teknik', this)">Teknik</button>
+            <button class="filter-tab" onclick="filterJobs('diger', this)">Diğer</button>
+        </div>
+
+        <div class="jobs-grid" id="jobsGrid">
+
+            <div class="job-card" data-sector="saglik">
+                <div class="job-card-top">
+                    <div class="job-meta">
+                        <span class="job-code">İlan 001</span>
+                        <span class="job-sector sector-saglik">Sağlık · Ergoterapi</span>
+                    </div>
+                    <span class="job-status">Açık</span>
+                </div>
+                <h3>Ergoterapist</h3>
+                <div class="job-details">
+                    <span>📍 Kuzey Ren-Vestfalya</span>
+                    <span>💶 2.900 – 3.300 € / başlangıç &nbsp;·&nbsp; Denklik sonrası 3.600–4.200 €</span>
+                </div>
+                <div style="font-size:0.8rem; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.25rem;">Aranan Nitelikler</div>
+                <ul class="job-requirements">
+                    <li>İlgili lisans diploması veya denklik başvurusu</li>
+                    <li>En az B1 Almanca</li>
+                    <li>Başvuru dosyasına hazır olmak</li>
+                </ul>
+                <a href="https://www.indeed.com/jobs?q=ergotherapeut&l=Deutschland" target="_blank" class="btn btn-outline">Indeed'de İncele →</a>
+            </div>
+
+            <div class="job-card" data-sector="saglik">
+                <div class="job-card-top">
+                    <div class="job-meta">
+                        <span class="job-code">İlan 002</span>
+                        <span class="job-sector sector-saglik">Sağlık · Hemşirelik</span>
+                    </div>
+                    <span class="job-status">Açık</span>
+                </div>
+                <h3>Pflegefachkraft</h3>
+                <div class="job-details">
+                    <span>📍 Bavyera</span>
+                    <span>💶 3.100 – 3.500 € brüt / başlangıç</span>
+                </div>
+                <div style="font-size:0.8rem; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.25rem;">Aranan Nitelikler</div>
+                <ul class="job-requirements">
+                    <li>Hemşirelik diploması</li>
+                    <li>B1 veya B2 Almanca hedefi</li>
+                    <li>Mülakat ve belge hazırlığına açık olmak</li>
+                </ul>
+                <a href="https://www.indeed.com/jobs?q=pflegefachkraft&l=Bayern" target="_blank" class="btn btn-outline">Indeed'de İncele →</a>
+            </div>
+
+            <div class="job-card" data-sector="teknik">
+                <div class="job-card-top">
+                    <div class="job-meta">
+                        <span class="job-code">İlan 003</span>
+                        <span class="job-sector sector-teknik">Teknik · Elektrik</span>
+                    </div>
+                    <span class="job-status">Açık</span>
+                </div>
+                <h3>Elektrik Teknisyeni</h3>
+                <div class="job-details">
+                    <span>📍 Aşağı Saksonya</span>
+                    <span>💶 2.800 – 3.400 € brüt · Tecrübeye göre artış</span>
+                </div>
+                <div style="font-size:0.8rem; font-weight:600; color:var(--text-light); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.25rem;">Aranan Nitelikler</div>
+                <ul class="job-requirements">
+                    <li>Teknik diploma veya mesleki yeterlilik</li>
+                    <li>Temel Almanca iletişim düzeyi</li>
+                    <li>CV ve yetkinlik profilinin Almanya pazarına göre düzenlenmesi</li>
+                </ul>
+                <a href="https://www.indeed.com/jobs?q=elektriker&l=Niedersachsen" target="_blank" class="btn btn-outline">Indeed'de İncele →</a>
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:2.5rem;">
+            <p style="color:var(--text-light); font-size:0.9rem; margin-bottom:1rem;">Aradığın pozisyon burada yok mu? Görüşmede birlikte bakabiliriz.</p>
+            <a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="btn btn-primary">Görüşme Planla →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="sss">
+    <div class="container">
+        <div style="text-align:center; margin-bottom:3rem;">
+            <div class="section-label">Sık Sorulan Sorular</div>
+            <h2>Aklındaki sorular</h2>
+            <p class="section-sub" style="margin: 0 auto;">Randevu almadan önce en çok merak edilenleri burada yanıtladık.</p>
+        </div>
+        <div class="faq-wrap">
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Görüşmeler nasıl yapılıyor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Tüm görüşmeler Google Meet veya Zoom üzerinden görüntülü olarak yapılıyor. Randevu sonrası e-posta ile otomatik bağlantı linki iletilecek.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Ödeme nasıl yapılıyor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Randevu alırken saat seçtikten sonra Stripe üzerinden güvenli ödeme yapılıyor. Ödeme tamamlanınca randevunuz otomatik onaylanıyor ve e-posta ile bilgi geliyor.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    İptal politikanız nedir?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Randevudan 24 saat öncesine kadar iptal ederseniz ücret iadesi yapılır. 24 saatten az kala yapılan iptallerde ücret iadesi yapılmaz.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Denklik işlemleri için neler gerekiyor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Denklik süreci mezun olduğunuz alana ve Almanya'daki hedef mesleğe göre farklılık gösteriyor. Görüşmede diploma, not transkripti ve hedef mesleğiniz doğrultusunda kişiye özel yol haritası çıkarıyoruz.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Almanca bilmeden Almanya'da iş bulabilir miyim?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Sektöre ve role göre değişse de birçok alanda İngilizce ile başlamak mümkün. Uzun vadeli kariyer için Almanca öğrenimine başlamak önemli. Görüşmede mevcut durumunuza göre somut tavsiye alabilirsiniz.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    İş arama vizesi için ne hazırlamam gerekiyor?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Genel olarak diploma, dil belgesi (B1/B2), finansal yeterlilik kanıtı ve özgeçmiş gerekiyor. Başvuru süreleri konsolosluğa göre değişebiliyor. Detaylı ve güncel bilgi için görüşme planlamanızı öneririz.</div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Hangi konularda yardım alabiliyorum?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-a">Almanya'ya göç planlama, mesleki denklik, iş arama ve CV hazırlığı, iş arama vizesi, Almanya'da yaşam koşulları ve yerleşim süreci, belge düzenleme ve tercüme yönlendirmesi konularında destek veriyoruz.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+<section id="iletisim">
+    <div class="container">
+        <div style="text-align:center; margin-bottom:3rem;">
+            <div class="section-label" style="color:#a8c8e0;">İletişim</div>
+            <h2>Bize Yazın</h2>
+            <p class="section-sub" style="color:#8fafc4; margin:0 auto;">Sorunuzu veya talebinizi iletin, en kısa sürede dönüş yapalım.</p>
+        </div>
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <h4>E-posta</h4>
+                        <p>info@eduworkavrupa.com</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="icon">📸</div>
+                    <div>
+                        <h4>Instagram</h4>
+                        <p><a href="https://www.instagram.com/eduworkavrupa" target="_blank" style="color:white; text-decoration:none;">@eduworkavrupa</a></p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="icon">🕐</div>
+                    <div>
+                        <h4>Yanıt Süresi</h4>
+                        <p>Genellikle 24 saat içinde</p>
+                    </div>
+                </div>
+                <a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="btn btn-white" style="justify-content:center;">
+                    📅 Doğrudan Randevu Al
+                </a>
+            </div>
+
+            <div class="contact-form-wrap">
+                <h3>Mesaj Gönderin</h3>
+                <form name="iletisim" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+                    <input type="hidden" name="form-name" value="iletisim">
+                    <p style="display:none;"><input name="bot-field"></p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ad">Adınız *</label>
+                            <input type="text" id="ad" name="ad" placeholder="Ad Soyad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eposta">E-posta *</label>
+                            <input type="email" id="eposta" name="eposta" placeholder="ornek@mail.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="konu">Konu</label>
+                        <select id="konu" name="konu">
+                            <option value="">Seçiniz…</option>
+                            <option>Mesleki Denklik</option>
+                            <option>İş Arama / CV</option>
+                            <option>İş Arama Vizesi</option>
+                            <option>Almanya'ya Taşınma</option>
+                            <option>Fiyat / Paket Bilgisi</option>
+                            <option>Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mesaj">Mesajınız *</label>
+                        <textarea id="mesaj" name="mesaj" placeholder="Durumunuzu kısaca anlatın…" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Gönder →</button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    ✅ Mesajınız alındı! En kısa sürede dönüş yapacağız.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+    <div class="footer-links">
+        <a href="/imprint.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/cancellation.html">Widerruf</a>
+        <a href="mailto:info@eduworkavrupa.com">info@eduworkavrupa.com</a>
+        <a href="https://www.instagram.com/eduworkavrupa" target="_blank">Instagram</a>
+    </div>
+    <p>© 2025 Eduwork Avrupa · Tüm hakları saklıdır · Almanya</p>
+</footer>
+
+<!-- ═══════════════════════ FLOATING BUTTON ═══════════════════════ -->
+<div class="floating">
+    <a href="https://cal.eu/eduworkavrupa/30min" target="_blank" class="float-btn float-cal">
+        📅 <span class="label">Randevu Al</span>
+    </a>
+</div>
+
+<script>
+    function toggleMenu() { document.getElementById('mobileNav').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('mobileNav').classList.remove('open'); }
+
+    document.addEventListener('click', function(e) {
+        const nav = document.getElementById('mobileNav');
+        const btn = document.querySelector('.hamburger');
+        if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
+            nav.classList.remove('open');
+        }
+    });
+
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
+
+    function filterJobs(sector, btn) {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.job-card').forEach(card => {
+            card.style.display = (sector === 'tumu' || card.dataset.sector === sector) ? 'flex' : 'none';
+        });
+    }
+
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Gönderiliyor…';
+            btn.disabled = true;
+            try {
+                const data = new FormData(form);
+                await fetch('/', { method: 'POST', body: data });
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            } catch {
+                btn.textContent = 'Gönder →';
+                btn.disabled = false;
+                alert('Bir hata oluştu. Lütfen info@eduworkavrupa.com adresine doğrudan yazın.');
+            }
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const id = a.getAttribute('href');
+            if (id === '#') return;
+            const target = document.querySelector(id);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                closeMenu();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
